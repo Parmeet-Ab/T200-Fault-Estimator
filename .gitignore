@@ -1,0 +1,17 @@
+# datasets
+data/
+*.xlsx
+*.npz
+
+# python environments
+tf/
+.venv/
+venv/
+env/
+
+# python cache
+__pycache__/
+*.pyc
+
+# mac
+.DS_Store
