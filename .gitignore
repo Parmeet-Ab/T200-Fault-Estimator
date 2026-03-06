@@ -2,6 +2,7 @@
 data/
 *.xlsx
 *.npz
+models/
 
 # python environments
 tf/

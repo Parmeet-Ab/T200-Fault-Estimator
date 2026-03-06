@@ -13,7 +13,7 @@ def generate_pwm(N, rng=None):
     t = np.arange(N) #time steps
 
     amp=rng.uniform(150, 350) #creates random amplitude for the PWM signal between 150 and 350
-    pwm_t = 1500 + amp*np.sin(t/20)
+    pwm_t = 1500 + amp*np.sin(t/20) #changes pwm data to be based on time
     
     return np.clip(pwm_t, 1100, 1900)
 
