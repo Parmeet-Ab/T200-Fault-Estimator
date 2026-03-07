@@ -1,6 +1,8 @@
 import numpy as np 
 from simulate_data import generate_pwm, pwm_to_current, add_spike
 
+sheet_name = '12 V'
+
 def main():
     rng = np.random.default_rng(0)  # Set a fixed seed for reproducibility
     
@@ -15,7 +17,7 @@ def main():
         "Generates synthetic normal current data based on the T200 performance curve, with added sensor noise. Stores the data in the X_normal array."
 
         pwm = generate_pwm(Seq_Len, rng)
-        cur = pwm_to_current(pwm)
+        cur = pwm_to_current(pwm, sheet_name)
         cur = cur + rng.normal(0, 0.15, size=Seq_Len) #simulates sensor noise
         X_normal[i] = cur.astype(np.float32)
 

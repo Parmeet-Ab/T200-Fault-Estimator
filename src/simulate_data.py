@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 from load_data import load_t200_pwm_cur
 
 file_path = 'data/T200-Public-Performance-Data-10-20V-September-2019.xlsx'
-sheet_name = '12 V'
-pwm_curve, cur_curve = load_t200_pwm_cur(file_path, sheet_name)
+
 
 def generate_pwm(N, rng=None):
     "Generates synthetic PWM and current data based on the T200 performance curve. Returns two numpy arrays: PWM values and corresponding current values."
@@ -17,8 +16,9 @@ def generate_pwm(N, rng=None):
     
     return np.clip(pwm_t, 1100, 1900)
 
-def pwm_to_current(pwm_t):
+def pwm_to_current(pwm_t, sheet_name):
     "Converts PWM values to current values using interpolation based on the T200 performance curve."
+    pwm_curve, cur_curve = load_t200_pwm_cur(file_path, sheet_name)
     return np.interp(pwm_t, pwm_curve, cur_curve)
 
 def add_spike(current, rng = None):
@@ -29,7 +29,6 @@ def add_spike(current, rng = None):
     spike_index = rng.integers(20, len(current_fault)-20) #chooses a random index to add the spike, avoiding the edges
     current_fault[spike_index] += rng.uniform(4, 10) #adds a random spike between 5 and 10 amps
     return current_fault
-
 
 def demo():
     N = 200

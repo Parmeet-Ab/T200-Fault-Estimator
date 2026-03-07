@@ -12,7 +12,7 @@ rng = np.random.default_rng(1)
 
 #Make new signal to test model on 
 pwm = generate_pwm(200, rng)
-current = pwm_to_current(pwm)
+current = pwm_to_current(pwm, '12 V')
 current = current + rng.normal(0, 0.15, size=current.shape) #simulates sensor noise
 
 #inject a fault so we can test detection 
@@ -33,6 +33,8 @@ for i in range(200 - Window + 1):
     scores.append(np.mean(err_t[i:i+Window]))
 scores = np.array(scores)
 
+
+#Creating and Formatting Graphs
 fig, ax1 = plt.subplots()
 
 ax1.plot(current_fault, label="Faulty Current", color="orange")
