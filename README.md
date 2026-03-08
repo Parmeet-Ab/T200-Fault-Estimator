@@ -9,7 +9,7 @@ PWM Signal Genreation --> Thruster Current Sim --> Fault Injection --> Dataset G
 Below is an example output of the detector.
 
 - **Orange curve:** simulated thruster current  
-- **Red curve:** anomaly score from reconstruction error
+- **Red curve:** anomaly score
 
 ![Fault Detection Example](images/detection_example_plot.png)
 
