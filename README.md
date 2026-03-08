@@ -11,6 +11,7 @@ Below is an example output of the detector.
 - **Orange curve:** simulated thruster current  
 - **Red curve:** anomaly score
 
+![Fault Detection Example](images/detection_example_plot2.png)
 
 **Instalation Guidelines:**
   1. git clone https://github.com/yourusername/T200-Fault-Detector.git 
