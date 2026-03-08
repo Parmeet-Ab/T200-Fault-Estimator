@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 Window = 20
 
 model = keras.models.load_model("models/t200_autoencoder.keras")
-rng = np.random.default_rng()
+rng = np.random.default_rng(0)
 
 #Make new signal to test model on 
 pwm = generate_pwm(200, rng)
@@ -43,7 +43,8 @@ ax1.set_ylabel("Current (A)", color="orange")
 ax1.tick_params(axis='y', labelcolor="orange")
 
 ax2 = ax1.twinx()
-ax2.plot(range(Window - 1, len(scores) + Window - 1), scores, label="Anomaly Score", color="red", linestyle="--") 
+offset = Window // 2
+ax2.plot(range(offset, offset + len(scores)), scores, color="red", linestyle="--")
 ax2.set_ylabel("Anomaly Score", color="red")
 ax2.tick_params(axis='y', labelcolor="red")
 
