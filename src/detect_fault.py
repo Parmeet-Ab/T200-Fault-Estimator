@@ -43,9 +43,10 @@ ax1.set_ylabel("Current (A)", color="orange")
 ax1.tick_params(axis='y', labelcolor="orange")
 
 ax2 = ax1.twinx()
-ax2.plot(range(Window - 1, len(scores) + Window - 1), scores, label="Anomaly Score", color="red")
+ax2.plot(range(Window - 1, len(scores) + Window - 1), scores, label="Anomaly Score", color="red", linestyle="--") 
 ax2.set_ylabel("Anomaly Score", color="red")
 ax2.tick_params(axis='y', labelcolor="red")
 
 plt.title("Fault Detection on Thruster Current Signal")
+plt.savefig("images/detection_example_plot.png")
 plt.show()
