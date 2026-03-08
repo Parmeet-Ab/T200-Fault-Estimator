@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 Window = 20
 
 model = keras.models.load_model("models/t200_autoencoder.keras")
-rng = np.random.default_rng(1)
+rng = np.random.default_rng()
 
 #Make new signal to test model on 
 pwm = generate_pwm(200, rng)
