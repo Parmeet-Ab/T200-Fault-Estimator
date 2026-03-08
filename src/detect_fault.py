@@ -49,5 +49,5 @@ ax2.set_ylabel("Anomaly Score", color="red")
 ax2.tick_params(axis='y', labelcolor="red")
 
 plt.title("Fault Detection on Thruster Current Signal")
-plt.savefig("images/detection_example_plot.png")
+plt.savefig("images/detection_example_plot2.png")
 plt.show()
